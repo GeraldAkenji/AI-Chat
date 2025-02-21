@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chataiapp
+  namespace: demo-test
+spec:
+  selector:
+    matchLabels:
+      app: chataiapp
+  template:
+    metadata:
+      labels:
+        app: chataiapp
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - name: chataiapp
+        image: idrisniyi94/aihatapp:v-0.40
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 8501
+        - containerPort: 8502

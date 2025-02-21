@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/stwins60/chatai.git
-    targetRevision: master
+    repoURL: https://github.com/GeraldAkenji/AI-Chat.git
+    targetRevision: main
     path: k8s
   destination:
     server: 'https://kubernetes.default.svc'

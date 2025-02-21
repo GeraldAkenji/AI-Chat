@@ -6,13 +6,13 @@ pipeline {
        DOCKERHUB_CREDENTIALS = credentials('5f8b634a-148a-4067-b996-07b4b3276fba')
        SLACK_WEBHOOK = credentials('191d1ac7-9f11-4626-8bdc-a3a78fcbf8c1')
        BRANCH_NAME = "${GIT_BRANCH.split('/')[1]}"
-       IMAGE_REPO = "idrisniyi94/aihatapp"
+       IMAGE_REPO = "geraldakenji/aihatapp"
    }
 
    stages {
         stage ("Checkout") {
             steps {
-                git branch: 'master', url: 'https://github.com/stwins60/chatai.git'
+                git branch: 'main', url: 'https://github.com/GeraldAkenji/AI-Chat.git'
             }
         }
 
@@ -116,8 +116,8 @@ pipeline {
         stage ("Update Deployment Image") {
             steps {
                 script {
-                    sh "git config --global user.email 'idrisniyi94@gmail.com'"
-                    sh "git config --global user.name 'Idris Fagbemi'"
+                    sh "git config --global user.email 'akenjigerald53@gmail.com'"
+                    sh "git config --global user.name 'Gerald Akenji'"
                     sh "sed -i 's|image:.*|image: ${env.IMAGE_NAME}|' k8s/deploy.yaml"
                     sh "git add ."
                     sh "git commit -m 'Update deployment image with commit ${env.BUILD_NUMBER}'"

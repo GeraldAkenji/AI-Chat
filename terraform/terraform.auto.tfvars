@@ -1,2 +1,2 @@
-image_name = "idrisniyi94/aihatapp"
-author = "Idris Fagbemi"
+image_name = "geraldakenji/aihatapp"
+author = "Gerald Akenji"
